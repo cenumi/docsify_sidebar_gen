@@ -6,7 +6,11 @@ void readDirs() {
   final file = File('_sidebar.md');
   final files = dir.listSync(recursive: true);
 
+  var sb = StringBuffer();
   for (final f in files) {
-    file.writeAsStringSync('- [${p.basenameWithoutExtension(f.path)}](${p.relative(f.path)})');
+    if (p.extension(f.path) == '.md' && p.basename(f.path) != '_sidebar.md') {
+      sb.writeln('- [${p.basenameWithoutExtension(f.path)}](${p.relative(f.path)})');
+    }
   }
+  file.writeAsStringSync(sb.toString());
 }

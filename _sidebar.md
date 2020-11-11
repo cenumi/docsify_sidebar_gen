@@ -1,1 +1,2 @@
-- [misc](.idea/misc.xml)
+- [CHANGELOG](CHANGELOG.md)
+- [README](README.md)
